@@ -8,12 +8,12 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.INTEGER
         },
 
-        firstName {
+        firstName: {
             type: Sequelize.STRING,
             allowNull: false
         },
 
-        lastName {
+        lastName: {
             type: Sequelize.STRING,
             allowNull: false
         },
