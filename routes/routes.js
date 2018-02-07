@@ -22,7 +22,3 @@ module.exports = function(app, passport) {
 
     app.post('/apitour', controller.postTour);
 };
-
-//asdfasdf.com/tour?id=15
-// .com/user
-// .com/point
