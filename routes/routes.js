@@ -3,11 +3,6 @@ var controller = require('../controllers/controller.js');
 module.exports = function(app) {
 
     app.get('/api/user/:id?', function (req, res) {
-        var models = app.get('models');
-        var User = models.User;
-        console.log('models.user: ' + models.user);
-
-
     	if (req.params.id) {
     		controller.getUser(req, res)
     	} else {
@@ -23,7 +18,18 @@ module.exports = function(app) {
     	}
     });
 
+    app.get('/api/point/:id?', function (req, res) {
+        if (req.params.id) {
+            controller.getPoint(req, res)
+        } else {
+            controller.getPointList(req, res)
+        }
+    });
+
     app.post('/api/user', controller.postUser);
 
-    app.post('/apitour', controller.postTour);
+    app.post('/api/tour', controller.postTour);
+
+    app.post('/api/point', controller.postPoint);
+
 };

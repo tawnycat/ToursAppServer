@@ -14,13 +14,9 @@ controller.getUser = function(req, res) {
     }).then(function(result) {
         return res.json(result);
     });
-
 };
 
 controller.getUserList = function(req, res) {
-
-    console.log('db: ' + db);
-    console.log(db.user);
 
     db.user.findAll({
     	include: {
@@ -30,7 +26,6 @@ controller.getUserList = function(req, res) {
     }).then(function(results) {
         res.json(results);
     });
-
 };
 
 controller.postUser = function(req, res) {
@@ -42,7 +37,6 @@ controller.postUser = function(req, res) {
     }).then(function(results) {
         res.end();
     });
-
 };
 
 controller.getTour = function(req, res) {
@@ -58,7 +52,6 @@ controller.getTour = function(req, res) {
     }).then(function(result) {
         return res.json(result);
     });
-
 };
 
 controller.getTourList = function(req, res) {
@@ -71,18 +64,49 @@ controller.getTourList = function(req, res) {
       }).then(function(results) {
         res.json(results);
     });
-
 };
 
 controller.postTour = function(req, res) {
 
     db.tour.create({
         title: req.body.title,
-        location: req.body.location,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
         description: req.body.description,
         price: req.body.price
     }).then(function(results) {
         res.end();
     });
+};
+
+controller.getPoint = function(req, res) {
+
+    db.point.findOne({        
+        where: {
+            id: req.params.id
+        }
+    }).then(function(result) {
+        return res.json(result);
+    });
 
 };
+
+controller.getPointList = function(req, res) {
+
+    db.point.findAll({}).then(function(result) {
+        return res.json(result);
+    });
+};
+
+controller.postPoint = function(req, res) {
+
+    db.tour.create({
+        title: req.body.title,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        description: req.body.description
+    }).then(function(results) {
+        res.end();
+    });
+};
+
