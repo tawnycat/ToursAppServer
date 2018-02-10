@@ -1,10 +1,15 @@
+var db = require("../models");
 var controller = module.exports = {}
 
 controller.getUser = function(req, res) {
 
-    User.findOne({
+    db.user.findOne({
         where: {
             id: req.params.id
+        },
+        include: {
+            model: db.tour,
+            as: 'Tours'
         }
     }).then(function(result) {
         return res.json(result);
@@ -14,7 +19,15 @@ controller.getUser = function(req, res) {
 
 controller.getUserList = function(req, res) {
 
-    User.findAll({}).then(function(results) {
+    console.log('db: ' + db);
+    console.log(db.user);
+
+    db.user.findAll({
+    	include: {
+    		model: db.tour,
+            as: 'Tours'
+    	}
+    }).then(function(results) {
         res.json(results);
     });
 
@@ -22,7 +35,7 @@ controller.getUserList = function(req, res) {
 
 controller.postUser = function(req, res) {
 
-    User.create({
+    db.user.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email
@@ -34,9 +47,13 @@ controller.postUser = function(req, res) {
 
 controller.getTour = function(req, res) {
 
-    Tour.findOne({
+    db.tour.findOne({
         where: {
             id: req.params.id
+        },
+        include: {
+            model: db.point,
+            through: 'TourPoint'
         }
     }).then(function(result) {
         return res.json(result);
@@ -46,7 +63,12 @@ controller.getTour = function(req, res) {
 
 controller.getTourList = function(req, res) {
 
-    Tour.findAll({}).then(function(results) {
+    db.tour.findAll({
+        include: {
+            model: db.point,
+            through: 'TourPoint'
+        }
+      }).then(function(results) {
         res.json(results);
     });
 
@@ -54,7 +76,7 @@ controller.getTourList = function(req, res) {
 
 controller.postTour = function(req, res) {
 
-    Tour.create({
+    db.tour.create({
         title: req.body.title,
         location: req.body.location,
         description: req.body.description,

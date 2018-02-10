@@ -3,9 +3,9 @@ module.exports = function(sequelize, Sequelize) {
     var Point = sequelize.define('point', {
 
         id: {
-            autoIncrement: true,
+            type: Sequelize.INTEGER,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            autoIncrement: true
         },
 
         title: {
@@ -13,15 +13,36 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
 
-        coordinates: {
+        latitude: {
             type: Sequelize.INTEGER,
-            allowNull: false
+            allowNull: true,
+            defaultValue: null,
+            validate: { min: -90, max: 90 }
+        },
+        longitude: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            defaultValue: null,
+            validate: { min: -180, max: 180 }
         },
 
         description: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        createdAt: {
+            type: Sequelize.DATE,
+            field: 'beginTime',
+            defaultValue: sequelize.literal('NOW()')
+        },
+
+        updatedAt: {
+            type: Sequelize.DATE,
+            field: 'beginTime',
+            defaultValue: sequelize.literal('NOW()')
         }
+    }, {
+        timestamps: true,
     });
 
     return Point;

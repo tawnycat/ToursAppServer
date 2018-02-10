@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
-var session = require('express-session');
 var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +22,8 @@ models.sequelize.sync().then(function() {
     console.log(err, "Something went wrong with the Database Update!")
  
 });
+
+app.set('models', models);
 
 // Listener
 app.listen(process.env.PORT || 3000, function(err) {

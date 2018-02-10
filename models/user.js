@@ -3,9 +3,9 @@ module.exports = function(sequelize, Sequelize) {
     var User = sequelize.define('user', {
 
         id: {
-            autoIncrement: true,
+            type: Sequelize.INTEGER,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            autoIncrement: true
         },
 
         firstName: {
@@ -23,9 +23,23 @@ module.exports = function(sequelize, Sequelize) {
             validate: {
                 isEmail: true
             }
+        },
+
+        createdAt: {
+            type: Sequelize.DATE,
+            field: 'beginTime',
+            defaultValue: sequelize.literal('NOW()')
+        },
+
+        updatedAt: {
+            type: Sequelize.DATE,
+            field: 'beginTime',
+            defaultValue: sequelize.literal('NOW()')
         }
+    },
+    {
+        timestamps: true,
     });
 
     return User;
-
 }

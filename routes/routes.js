@@ -1,20 +1,25 @@
 var controller = require('../controllers/controller.js');
 
-module.exports = function(app, passport) {
+module.exports = function(app) {
 
     app.get('/api/user/:id?', function (req, res) {
+        var models = app.get('models');
+        var User = models.User;
+        console.log('models.user: ' + models.user);
+
+
     	if (req.params.id) {
-    		controller.getUser()
+    		controller.getUser(req, res)
     	} else {
-    		controller.getUserList()
+    		controller.getUserList(req, res)
     	}
     });
 
-    app.get('api/tour/:id?', function (req, res) {
+    app.get('/api/tour/:id?', function (req, res) {
     	if (req.params.id) {
-    		controller.getTour()
+    		controller.getTour(req, res)
     	} else {
-    		controller.getTourList()
+    		controller.getTourList(req, res)
     	}
     });
 

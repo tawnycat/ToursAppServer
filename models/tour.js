@@ -3,9 +3,9 @@ module.exports = function(sequelize, Sequelize) {
     var Tour = sequelize.define('tour', {
 
         id: {
-            autoIncrement: true,
+            type: Sequelize.INTEGER,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            autoIncrement: true
         },
 
         title: {
@@ -13,9 +13,17 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
 
-        location: {
+        latitude: {
             type: Sequelize.INTEGER,
-            allowNull: false
+            allowNull: true,
+            defaultValue: null,
+            validate: { min: -90, max: 90 }
+        },
+        longitude: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            defaultValue: null,
+            validate: { min: -180, max: 180 }
         },
 
         description: {
@@ -25,7 +33,21 @@ module.exports = function(sequelize, Sequelize) {
 
         price: {
             type: Sequelize.INTEGER
+        },
+
+        createdAt: {
+            type: Sequelize.DATE,
+            field: 'beginTime',
+            defaultValue: sequelize.literal('NOW()')
+        },
+
+        updatedAt: {
+            type: Sequelize.DATE,
+            field: 'beginTime',
+            defaultValue: sequelize.literal('NOW()')
         }
+    }, {
+        timestamps: true,
     });
 
     return Tour;

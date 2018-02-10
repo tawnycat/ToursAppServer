@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "pushpinServer",
+    "password": "Sept1#1990",
+    "database": "pushpin",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
