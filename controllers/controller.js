@@ -119,4 +119,4 @@ controller.postPoint = function(req, res) {
     }).then(function(results) {
         res.end();
     });
-};
+}; 
