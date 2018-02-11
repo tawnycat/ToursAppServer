@@ -33,8 +33,8 @@ controller.getUserList = function(req, res) {
                 through: 'DownloadedTours'
             }
         ]
-    }).then(function(results) {
-        res.json(results);
+    }).then(function(result) {
+        res.json(result);
     });
 };
 
@@ -44,7 +44,7 @@ controller.postUser = function(req, res) {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email
-    }).then(function(results) {
+    }).then(function(result) {
         res.end();
     });
 };
@@ -71,9 +71,20 @@ controller.getTourList = function(req, res) {
             model: db.point,
             through: 'TourPoint'
         }
-    }).then(function(results) {
-        res.json(results);
+    }).then(function(result) {
+        res.json(result);
     });
+};
+
+controller.getTourZipcode = function (req, res) {
+
+    db.tour.find({
+        where: {
+            zipcode: req.params.zipcode
+        }
+    }).then(function(result) {
+        return res.json(result)
+    })
 };
 
 controller.postTour = function(req, res) {

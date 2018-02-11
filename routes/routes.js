@@ -10,9 +10,12 @@ module.exports = function(app) {
     	}
     });
 
-    app.get('/api/tour/:id?', function (req, res) {
+    app.get('/api/tour/:id?:zipcode?', function (req, res) {
     	if (req.params.id) {
     		controller.getTour(req, res)
+        } else if (req.params.zipcode) {
+            controller.getTourZipcode(req, res)
+        }
     	} else {
     		controller.getTourList(req, res)
     	}
