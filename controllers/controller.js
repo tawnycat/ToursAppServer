@@ -7,14 +7,14 @@ controller.getUser = function(req, res) {
         where: {
             id: req.params.id
         },
-        include: [
-        {
-            model: db.tour,
-            as: 'CreatedTours'
-        },
-        {
-            model: db.tour,  
-            through: 'DownloadedTours'}
+        include: [{
+                model: db.tour,
+                as: 'CreatedTours'
+            },
+            {
+                model: db.tour,
+                through: 'DownloadedTours'
+            }
         ]
     }).then(function(result) {
         return res.json(result);
@@ -24,10 +24,15 @@ controller.getUser = function(req, res) {
 controller.getUserList = function(req, res) {
 
     db.user.findAll({
-    	include: {
-    		model: db.tour,
-            as: 'Tours'
-    	}
+        include: [{
+                model: db.tour,
+                as: 'CreatedTours'
+            },
+            {
+                model: db.tour,
+                through: 'DownloadedTours'
+            }
+        ]
     }).then(function(results) {
         res.json(results);
     });
@@ -66,7 +71,7 @@ controller.getTourList = function(req, res) {
             model: db.point,
             through: 'TourPoint'
         }
-      }).then(function(results) {
+    }).then(function(results) {
         res.json(results);
     });
 };
@@ -75,10 +80,11 @@ controller.postTour = function(req, res) {
 
     db.tour.create({
         title: req.body.title,
-        latitude: req.body.latitude,
-        longitude: req.body.longitude,
+        zipcode: req.body.zipcode,
+        category: req.body.category,
         description: req.body.description,
-        price: req.body.price
+        price: req.body.price,
+        photo: req.body.photo
     }).then(function(results) {
         res.end();
     });
@@ -86,7 +92,7 @@ controller.postTour = function(req, res) {
 
 controller.getPoint = function(req, res) {
 
-    db.point.findOne({        
+    db.point.findOne({
         where: {
             id: req.params.id
         }
@@ -114,4 +120,3 @@ controller.postPoint = function(req, res) {
         res.end();
     });
 };
-
