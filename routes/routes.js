@@ -15,8 +15,7 @@ module.exports = function(app) {
     		controller.getTour(req, res)
         } else if (req.params.zipcode) {
             controller.getTourZipcode(req, res)
-        }
-    	} else {
+        } else {
     		controller.getTourList(req, res)
     	}
     });
