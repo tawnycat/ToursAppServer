@@ -10,15 +10,11 @@ module.exports = function(app) {
     	}
     });
 
-    app.get('/api/tour/:id?:zipcode?', function (req, res) {
-    	if (req.params.id) {
-    		controller.getTour(req, res)
-        } else if (req.params.zipcode) {
-            controller.getTourZipcode(req, res)
-        } else {
-    		controller.getTourList(req, res)
-    	}
-    });
+    app.get('/api/tour/id/:id?', controller.getTour);
+
+    app.get('/api/tour/zipcode/:zipcode?', controller.getTourZipcode);
+
+    app.get('/api/tour', controller.getTourList);
 
     app.get('/api/point/:id?', function (req, res) {
         if (req.params.id) {
