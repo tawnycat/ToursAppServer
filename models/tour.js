@@ -53,9 +53,3 @@ module.exports = function(sequelize, Sequelize) {
     return Tour;
 
 }
-
-// NEED TO ADD: which tours has user downloaded?
-// Many to many association between tours and users
-// ADD CATEGORIES
-// need to be able to pull tours based on user input location
-// ADD QUERIES TO SEARCH CARD
