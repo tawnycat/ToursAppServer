@@ -13,13 +13,9 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
 
-        latitude: {
+        zipcode: {
             type: Sequelize.INTEGER,
             validate: { min: -90, max: 90 }
-        },
-        longitude: {
-            type: Sequelize.INTEGER,
-            validate: { min: -180, max: 180 }
         },
 
         category: {
