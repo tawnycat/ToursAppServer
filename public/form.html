@@ -2,100 +2,104 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Add Tour</title>
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Add Tour</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 
 <body>
-
-  <div class="jumbotron">
-    <h1>New Tour</h1>
-  </div>
-
-  <div class="container">
-    <div class="form-group">
-      <h6>Tour Title</h6>
-      <input type="text" class="form-control" id="tourTitle">
-
-      <h6>Long Description</h6>
-      <textarea type="text" class="form-control" id="longDescription"></textarea>
-
-      <h6>Price</h6>
-      <input type="int" class="form-control" id="price">
-      <button>Submit</button>
-
-
-      <h1>Add Point</h1>
-      <h4>Point 1</h4>
-      <h6>Point Name</h6>
-      <input type="text" class="form-control" id="pointName">
-
-      <h6>Point Description</h6>
-      <textarea type="text" class="form-control" id="shortDescription"></textarea>
-
-      <h6>Point Latitude</h6>
-      <input type="text" class="form-control" id="pointLat">
-
-      <h6>Point Longitude</h6>
-      <input type="text" class="form-control" id="pointLong">
-
-      <h4>Point 2</h4>
-      <h6>Point Name</h6>
-      <input type="text" class="form-control" id="pointName">
-
-      <h6>Point Description</h6>
-      <textarea type="text" class="form-control" id="shortDescription"></textarea>
-
-      <h6>Point Latitude</h6>
-      <input type="text" class="form-control" id="pointLat">
-
-      <h6>Point Longitude</h6>
-      <input type="text" class="form-control" id="pointLong">
-
-      <h4>Point 3</h4>
-      <h6>Point Name</h6>
-      <input type="text" class="form-control" id="pointName">
-
-      <h6>Point Description</h6>
-      <textarea type="text" class="form-control" id="shortDescription"></textarea>
-
-      <h6>Point Latitude</h6>
-      <input type="text" class="form-control" id="pointLat">
-
-      <h6>Point Longitude</h6>
-      <input type="text" class="form-control" id="pointLong">
+    <div class="jumbotron">
+        <h1>New Tour</h1>
     </div>
-  </div>
+    <div class="container">
+        <form action="/api/tour" method="post">
+            <div class="form-group">
+                <label for="userEmail">User email address</label>
+                <input type="email" class="form-control" id="userEmailInput">
+            </div>
+            <div class="form-group">
+                <label for="tourTitle">Tour Title</label>
+                <input type="text" class="form-control" id="tourTitleInput">
+            </div>
+            <div class="form-group">
+                <label for="tourLat">Tour Location Latitude</label>
+                <input type="number" class="form-control" id="tourLat">
+            </div>
+            <div class="form-g2roup">
+                <label for="tourLong">Tour Location Longitude</label>
+                <input type="number" class="form-control" id="tourLong">
+            </div>
+            <div class="form-group">
+                <label for="tourDescription">Tour Description</label>
+                <textarea class="form-control" id="tourDescriptionInput"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tourPhoto">Tour Photo URL</label>
+                <input class="form-control" id="tourPhotoInput">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="tourPrice">
+            </div>
+            <br>
+            <h2>Tour Points Info</h2>
+            <br>
+            <h3>Point #1</h3>
+            <div class="form-group">
+                <label for="point1name">Point Name</label>
+                <input type="text" class="form-control" id="point1name">
+            </div>
+            <div class="form-group">
+                <label for="point1description">Point Description</label>
+                <input type="text" class="form-control" id="point1description">
+            </div>
+            <div class="form-group">
+                <label for="point1lat">Point Latitude</label>
+                <input type="number" class="form-control" id="point1lat">
+            </div>
+            <div class="form-g2roup">
+                <label for="point1long">Point Longitude</label>
+                <input type="number" class="form-control" id="point1long">
+            </div>
+            <br>
+            <h3>Point #2</h3>
+            <div class="form-group">
+                <label for="point2name">Point Name</label>
+                <input type="text" class="form-control" id="point2name">
+            </div>
+            <div class="form-group">
+                <label for="point2description">Point Description</label>
+                <input type="text" class="form-control" id="point2description">
+            </div>
+            <div class="form-group">
+                <label for="point2lat">Point Latitude</label>
+                <input type="number" class="form-control" id="point2lat">
+            </div>
+            <div class="form-group">
+                <label for="point2long">Point Longitude</label>
+                <input type="number" class="form-control" id="point2long">
+            </div>
+            <br>
+            <h3>Point #3</h3>
+            <div class="form-group">
+                <label for="point3name">Point Name</label>
+                <input type="text" class="form-control" id="point3name">
+            </div>
+            <div class="form-group">
+                <label for="point3description">Point Description</label>
+                <input type="text" class="form-control" id="point3description">
+            </div>
+            <div class="form-group">
+                <label for="point3lat">Point Latitude</label>
+                <input type="number" class="form-control" id="point3lat">
+            </div>
+            <div class="form-group">
+                <label for="point3long">Point Longitude</label>
+                <input type="number" class="form-control" id="point3long">
+            </div>
+            <button type="submit" class="btn btn-primary mb-3" id="formsubmit">Submit</button>
+        </form>
+    </div>
 </body>
-
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAZi_iIcwghfEIwynXj1u3gL6JR92Jqa1c",
-    authDomain: "toursapp-e5f26.firebaseapp.com",
-    databaseURL: "https://toursapp-e5f26.firebaseio.com",
-    projectId: "toursapp-e5f26",
-    storageBucket: "toursapp-e5f26.appspot.com",
-    messagingSenderId: "408414341283"
-  };
-  firebase.initializeApp(config);
-  var database = firebase.database();
-  function createNewTour(tourTitle, longDescription, shortDescription, price) {
-    firebase.database().ref('tourTitle/' + tourId).set({
-      tourTitle: tourTitle,
-      longDescription: longDescription,
-      shortDescription: shortDescription,
-      price: price
-    });
-  }
-  documentGetElementByID('#SubmitButton').on('click') {
-    event.preventDefault()
-    createNewTour();
-  };
-</script>
 
 </html>

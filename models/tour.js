@@ -15,15 +15,15 @@ module.exports = function(sequelize, Sequelize) {
 
         latitude: {
             type: Sequelize.INTEGER,
-            allowNull: true,
-            defaultValue: null,
             validate: { min: -90, max: 90 }
         },
         longitude: {
             type: Sequelize.INTEGER,
-            allowNull: true,
-            defaultValue: null,
             validate: { min: -180, max: 180 }
+        },
+
+        category: {
+            type: Sequelize.STRING
         },
 
         description: {
@@ -33,6 +33,10 @@ module.exports = function(sequelize, Sequelize) {
 
         price: {
             type: Sequelize.INTEGER
+        },
+
+        photo: {
+            type: Sequelize.STRING
         },
 
         createdAt: {
@@ -53,3 +57,9 @@ module.exports = function(sequelize, Sequelize) {
     return Tour;
 
 }
+
+// NEED TO ADD: which tours has user downloaded?
+// Many to many association between tours and users
+// ADD CATEGORIES
+// need to be able to pull tours based on user input location
+// ADD QUERIES TO SEARCH CARD

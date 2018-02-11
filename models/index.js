@@ -31,10 +31,12 @@ Object.keys(db).forEach(function(modelName) {
 });
 
 // Associations
-db.user.hasMany(db.tour, {as: 'Tours'});
-db.tour.belongsToMany(db.point, {through: 'TourPoint'});
+db.user.hasMany(db.tour, {as: 'CreatedTours'});
 db.tour.belongsTo(db.user);
+db.tour.belongsToMany(db.point, {through: 'TourPoint'});
 db.point.belongsToMany(db.tour, {through: 'TourPoint'});
+db.user.belongsToMany(db.tour, {through: 'DownloadedTours'});
+db.tour.belongsToMany(db.user, {through: 'DownloadedTours'});
  
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

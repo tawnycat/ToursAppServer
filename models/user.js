@@ -43,3 +43,6 @@ module.exports = function(sequelize, Sequelize) {
 
     return User;
 }
+
+// NEED TO ADD: which tours has user downloaded?
+// Many to many association between tours and users

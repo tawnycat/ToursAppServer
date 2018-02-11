@@ -7,10 +7,15 @@ controller.getUser = function(req, res) {
         where: {
             id: req.params.id
         },
-        include: {
+        include: [
+        {
             model: db.tour,
-            as: 'Tours'
-        }
+            as: 'CreatedTours'
+        },
+        {
+            model: db.tour,  
+            through: 'DownloadedTours'}
+        ]
     }).then(function(result) {
         return res.json(result);
     });
