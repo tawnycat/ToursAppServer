@@ -39,6 +39,6 @@ db.user.belongsToMany(db.tour, {through: 'DownloadedTours'});
 db.tour.belongsToMany(db.user, {through: 'DownloadedTours'});
  
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.Sequelize = Sequelize; 
  
 module.exports = db;
