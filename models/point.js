@@ -11,16 +11,16 @@ module.exports = function(sequelize, Sequelize) {
         title: {
             type: Sequelize.STRING,
             allowNull: false
-        },
+        }, 
 
         latitude: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DECIMAL,
             allowNull: true,
             defaultValue: null,
             validate: { min: -90, max: 90 }
         },
         longitude: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.DECIMAL,
             allowNull: true,
             defaultValue: null,
             validate: { min: -180, max: 180 }

@@ -25,6 +25,9 @@ models.sequelize.sync().then(function() {
 
 app.set('models', models);
 
+//Public files
+app.use(express.static("public"));
+
 // Listener
 app.listen(process.env.PORT || 3000, function(err) {
 

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Add Tour</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/client.js"></script>
 </head>
 
 <body>
@@ -12,18 +14,17 @@
         <h1>New Tour</h1>
     </div>
     <div class="container">
-        <form action="/api/tour" method="post">
-            <div class="form-group">
-                <label for="userEmail">User email address</label>
-                <input type="email" class="form-control" id="userEmailInput">
-            </div>
             <div class="form-group">
                 <label for="tourTitle">Tour Title</label>
                 <input type="text" class="form-control" id="tourTitleInput">
             </div>
             <div class="form-group">
                 <label for="tourZip">Tour Zip Code</label>
-                <input type="number" class="form-control" id="tourZip">
+                <input type="number" class="form-control" id="tourZipInput">
+            </div>
+            <div class="form-group">
+                <label for="tourCategory">Tour Category</label>
+                <input class="form-control" id="tourCategoryInput">
             </div>
             <div class="form-group">
                 <label for="tourDescription">Tour Description</label>
@@ -93,9 +94,9 @@
                 <label for="point3long">Point Longitude</label>
                 <input type="number" class="form-control" id="point3long">
             </div>
-            <button type="submit" class="btn btn-primary mb-3" id="formsubmit">Submit</button>
-        </form>
+            <button class="btn btn-primary mb-3" id="formsubmit">Submit</button>
     </div>
+
 </body>
 
-</html> 
+</html>

@@ -1,4 +1,5 @@
 var db = require("../models");
+var path = require("path");
 var controller = module.exports = {}
 
 controller.getUser = function(req, res) {
@@ -92,16 +93,19 @@ controller.getTourZipcode = function(req, res) {
 };
 
 controller.postTour = function(req, res) {
-
+    console.log(req.body)
     db.tour.create({
         title: req.body.title,
         zipcode: req.body.zipcode,
         category: req.body.category,
         description: req.body.description,
         price: req.body.price,
-        photo: req.body.photo
+        photo: req.body.photo,
+        points: req.body.points
     }).then(function(results) {
-        res.end();
+        results.setPoints(req.body.points.map(p => p.id));
+        results.save();
+        res.send(results);
     });
 };
 
@@ -126,12 +130,16 @@ controller.getPointList = function(req, res) {
 
 controller.postPoint = function(req, res) {
 
-    db.tour.create({
+    db.point.create({
         title: req.body.title,
         latitude: req.body.latitude,
         longitude: req.body.longitude,
         description: req.body.description
     }).then(function(results) {
-        res.end();
+        res.send(results);
     });
+};
+
+controller.formPage = function(req, res) {
+    res.sendFile(path.join(__dirname, '../public', 'form.html'));
 };

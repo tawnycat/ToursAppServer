@@ -11,11 +11,10 @@ module.exports = function(sequelize, Sequelize) {
         title: {
             type: Sequelize.STRING,
             allowNull: false
-        },
+        }, 
 
         zipcode: {
-            type: Sequelize.INTEGER,
-            validate: { min: -90, max: 90 }
+            type: Sequelize.INTEGER
         },
 
         category: {
