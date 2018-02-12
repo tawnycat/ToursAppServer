@@ -13,8 +13,8 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         }, 
 
-        zipcode: {
-            type: Sequelize.INTEGER
+        city: {
+            type: Sequelize.STRING
         },
 
         category: {

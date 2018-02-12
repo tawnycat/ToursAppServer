@@ -55,7 +55,7 @@ $(document).on("click", "#formsubmit", function() {
 
     var newTour = {
         title: $("#tourTitleInput").val().trim(),
-        zipcode: $("#tourZipInput").val(),
+        city: $("#tourCityInput").val(),
         category: $("#tourCategoryInput").val().trim(),
         description: $("#tourDescriptionInput").val().trim(),
         price: $("#tourPrice").val(),
