@@ -66,17 +66,34 @@ $(document).on("click", "#formsubmit", function() {
     //console.log(newTour);
 
     function tour() {
-    pointArray.map(p => {p.createdAt = null; p.updatedAt = null;});
-    $.post("/api/tour", newTour)
-        .done(function(data) {
-            console.log(data);
-        })
+        pointArray.map(p => {
+            p.createdAt = null;
+            p.updatedAt = null;
+        });
+        $.post("/api/tour", newTour)
+            .done(function(data) {
+                console.log(data);
+                alert("Tour added to database!");
+            })
     }
 
-    // // empty each input box by replacing the value with an empty string
-    // $("#name").val("");
-    // $("#role").val("");
-    // $("#age").val("");
-    // $("#force-points").val("");
+    $("#point1name").val("");
+    $("#point1lat").val("");
+    $("#point1long").val("");
+    $("#point1description").val("");
+    $("#point2name").val("");
+    $("#point2lat").val("");
+    $("#point2long").val("");
+    $("#point2description").val("");
+    $("#point3name").val("");
+    $("#point3lat").val("");
+    $("#point3long").val("");
+    $("#point3description").val("");
+    $("#tourTitleInput").val("");
+    $("#tourCityInput").val("");
+    $("#tourCategoryInput").val("");
+    $("#tourDescriptionInput").val("");
+    $("#tourPrice").val("");
+    $("#tourPhotoInput").val("");
 
 });
