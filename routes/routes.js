@@ -12,7 +12,7 @@ module.exports = function(app) {
 
     app.get('/api/tour/id/:id?', controller.getTour);
 
-    app.get('/api/tour/zipcode/:zipcode?', controller.getTourZipcode);
+    app.get('/api/tour/city/:city?', controller.getTourZipcode);
 
     app.get('/api/tour', controller.getTourList);
 

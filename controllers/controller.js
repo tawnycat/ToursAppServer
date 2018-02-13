@@ -77,11 +77,11 @@ controller.getTourList = function(req, res) {
     });
 };
 
-controller.getTourZipcode = function(req, res) {
+controller.getTourCity = function(req, res) {
 
     db.tour.findAll({
         where: {
-            zipcode: req.params.zipcode
+            city: req.params.city
         },
         include: {
             model: db.point,
