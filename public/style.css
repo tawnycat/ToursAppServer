@@ -3,7 +3,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.form-group {
+.form-group, #tourCategoryInput {
     color: #87838B;
 }
 
@@ -27,7 +27,7 @@ h1, h2, h3 {
     font-weight: bolder;
 }
 
-input[type=text], input[type=number], #tourDescriptionInput {
+input[type=text], input[type=number], #tourDescriptionInput, #tourCategoryInput {
     border: none;
     border-bottom: 1px solid #d14545;
     border-radius: 0px;
@@ -37,4 +37,10 @@ input[type=text], input[type=number], #tourDescriptionInput {
     margin: 0;
     background-color: transparent;
     text-align: center;
+}
+
+input[type=text]:focus, input[type=number]:focus, #tourDescriptionInput:focus, #tourCategoryInput:focus {
+    border: none;
+    border-bottom: 1px solid #3385E5;
+    border-radius: 0px;
 }
