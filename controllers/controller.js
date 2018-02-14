@@ -92,6 +92,21 @@ controller.getTourCity = function(req, res) {
     })
 };
 
+controller.getTourCityCategory = function(req, res) {
+
+    db.tour.findAll({
+        where: {
+            city: req.params.city,
+            category: req.params.category
+        },
+        include: {
+            model: db.point,
+            through: 'TourPoint'
+        }
+    })
+
+};
+
 controller.postTour = function(req, res) {
     console.log(req.body)
     db.tour.create({

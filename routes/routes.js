@@ -14,6 +14,8 @@ module.exports = function(app) {
 
     app.get('/api/tour/city/:city?', controller.getTourCity);
 
+    app.get('/api/tour/city/:city?/category/:category?', controller.getTourCityCategory);
+
     app.get('/api/tour', controller.getTourList);
 
     app.get('/api/point/:id?', function (req, res) {
