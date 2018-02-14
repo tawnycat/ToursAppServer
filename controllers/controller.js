@@ -41,13 +41,27 @@ controller.getUserList = function(req, res) {
 
 controller.postUser = function(req, res) {
 
-    db.user.create({
+    db.user.upsert({
+        id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email
     }).then(function(result) {
         res.end();
     });
+};
+
+controller.addTourtoUser = function (req, res) {
+
+    db.user.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(result) {
+        results.addTour(req.body.tourID);
+        results.save();
+        res.end();
+    })
 };
 
 controller.getTour = function(req, res) {
