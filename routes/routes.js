@@ -30,7 +30,7 @@ module.exports = function(app) {
 
     app.post('/api/user', controller.postUser);
 
-    app.post('/api/user/downloadtour', controller.addTourtoUser);
+    app.post('/api/user/:id?/downloadtour', controller.addTourtoUser);
 
     app.post('/api/tour', controller.postTour);
 
