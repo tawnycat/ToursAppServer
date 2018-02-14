@@ -52,12 +52,12 @@ controller.postUser = function(req, res) {
 };
 
 controller.addTourtoUser = function (req, res) {
-
+    console.log(req);
     db.user.findOne({
         where: {
             id: req.params.id
         }
-    }).then(function(result) {
+    }).then(function(results) {
         results.addTour(req.body.tourID);
         results.save();
         res.end();
