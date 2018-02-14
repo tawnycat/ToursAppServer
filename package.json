@@ -18,13 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Daigunder35/NotePlay.git"
+    "url": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Daigunder35/NotePlay/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/Daigunder35/NotePlay#readme"
+  "homepage": ""
 }
